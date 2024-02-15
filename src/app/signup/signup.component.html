@@ -1,0 +1,67 @@
+<div class="h-screen bg-gradient-to-r from-orange-300 to-yellow-100 w-full flex">
+    <form class="h-fit w-auto bg-teal-400 bg-opacity-25 mx-auto mt-24">
+        <div class="text-center text-violet-800 text-xl font-bold underline mt-3">
+            <h3>SignUp</h3>
+        </div>
+        <div>
+            <label for="Name" class="underline text-purple-800 mx-2 mt-2 font-bold">Name: </label>
+            <input type="text" name="name" [(ngModel)]="name" placeholder="Enter Your Name" class="w-72 h-8 mt-2 mx-1 rounded-md">
+        </div>
+        <div>
+            <label for="Email" class="underline text-purple-800 mt-2 mx-2 font-bold">Email: </label>
+            <input type="text" name="email" [(ngModel)]="email" placeholder="Enter Your Email" class="w-72 h-8 mt-2 mx-1 rounded-md">
+        </div>
+        <div>
+            <label for="DOB" class="underline text-purple-800 mt-2 mx-2 font-bold">DOB: </label>
+            <input type="date" name="DOB" [(ngModel)]="DOB" class="mt-2 mx-1 rounded-md">
+        </div>
+        <div>
+            <label for="phonenumber" class="underline text-purple-800 mt-2 mx-2 font-bold">Phone Number : </label>
+            <input  type="tel" name="phonenumber" placeholder="Enter Mobile Number" id="phonenumber" class="mx-1 mt-2 w-60 h-8 rounded-md" [(ngModel)]="phonenumber">
+        </div>
+        <div class="h-14 w-fit flex">
+            <label for="Address" class="underline text-purple-800 mt-4  mx-2 font-bold">Address: </label>
+            <textarea name="Address" cols="30" [(ngModel)]="address" rows="2" class="mt-2 mx-1 rounded-md"></textarea>
+        </div>
+    
+        <div>
+            <div class="h-8 flex flex-row rounded-md mt-2">
+                <div>
+                    <label for="Password" class="underline text-purple-800 mt-2 mx-2 font-bold">Password: </label>
+                </div>
+                <div class="flex flex-row-reverse">
+                    <input [type]="changetype ? 'password' : 'text'" placeholder="Enter Your Password" class="w-64 rounded h-full mx-1" [(ngModel)]="password" name="password">
+               
+                    <svg *ngIf="viewIcon==true" (click)="showpassword()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 mt-1 h-6 absolute mr-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+                    <svg *ngIf="viewIcon==false" (click)="showpassword()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 mt-1 h-6 absolute mr-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"/>
+                    </svg>                          
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="h-8 flex flex-row rounded-md mt-2">
+                <div>
+                    <label for="Confirm Password" class="underline text-purple-800 mt-2 mx-2 font-bold">Confirm Password: </label>
+                </div>
+                <div class="flex flex-row-reverse">
+                    <input [type]="changetype ? 'password' : 'text'" placeholder="Re-Enter Your Password" class="w-60 rounded h-full mx-1" [(ngModel)]="confirmpassword" name="confirm password">
+                    <!-- <svg *ngIf="viewIcon==true" (click)="showpassword()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 mt-1 mr-1 absolute h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z"/>
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+                    </svg>
+                    <svg *ngIf="viewIcon==false" (click)="showpassword()" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 mt-1 h-6 absolute mr-1">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88"/>
+                    </svg>                           -->
+                </div>
+            </div>
+        </div>
+        <div class="flex">
+            <button class="h-fit w-64 bg-pink-100 text-indigo-400 rounded mx-auto mt-2" (click)="signup()">Signup</button>
+        </div>
+        <br>
+    </form>
+</div>
