@@ -20,13 +20,7 @@ export class LoginComponent {
     this.viewIcon=true;
   }
   login(){
-    if(this.username.toLowerCase()=="admin" && this.password=="Admin@123")
-    {
-        this.router.navigate(['/dashboard']);
-        localStorage.setItem("IsAuthorized","true");
-        localStorage.setItem('IsAdmin',"true");
-    }
-    else if(this.username.toLowerCase()=="ashik" && this.password=="Ashik@123")
+    if(this.username.toLowerCase()=="ashik" && this.password=="Ashik@123")
     {
       this.router.navigate(['/dashboard']);
       localStorage.setItem("IsAuthorized","true");

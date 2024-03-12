@@ -9,15 +9,29 @@
             </svg>
         </button>
     </div>
-    <button (click)="Login()" class="ml-4 mr-4">
+    <button (click)="Login()" class="ml-4 mr-4" *ngIf="!Authorized">
        Login
     </button>
-    <button class="flex mr-4 my-6" *ngIf="visible">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-            class="w-8 h-8">
+    <button class="flex ml-4 mr-4 my-6" *ngIf="Authorized" (click)="Cart()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 text-white">
             <path stroke-linecap="round" stroke-linejoin="round"
                 d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
         </svg>
-        <p class="mt-1">Cart</p>
+        <p class="mt-1 text-white">Cart</p>
+    </button>
+    <button (click)="Toggle()" *ngIf="Authorized">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8 mr-4 text-white">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>      
     </button>
 </nav>
+<div class="h-fit w-full absolute flex" *ngIf="Visible">
+    <div (click)="Toggle()" class="bg-gray-500 opacity-10 w-10/12">
+    </div>
+    <div class="bg-sky-900 h-full w-2/12 flex flex-col">
+        <button class="border-2 h-10 w-full text-fuchsia-700 bg-green-300" (click)="Profile()">Profile</button>
+        <button class="border-2 h-10 w-full text-fuchsia-700 bg-green-300" (click)="Your_Order()">Your Orders</button>
+        <button class="border-2 h-10 w-full text-fuchsia-700 bg-green-300" (click)="Logout()">Log Out</button>
+    </div>
+</div>
+<router-outlet></router-outlet>

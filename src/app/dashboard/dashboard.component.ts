@@ -7,12 +7,27 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-
-  visible:boolean; 
-  constructor(private router:Router){
-    this.visible=false;
+  constructor(private router: Router) { }
+  Cart() {
+      this.router.navigate(['cart']);
   }
-Login() {
-  this.router.navigate(['login'])
-}
+  Your_Order() {
+      this.router.navigate(['your_order']);
+  }
+  Profile() {
+      this.router.navigate(['profile']);
+  }
+  Logout() {
+    this.router.navigate(['/dashboard']);
+    localStorage.setItem("IsAuthorized", "false");
+    window.location.reload();
+  }
+  Toggle() {
+    this.Visible = !this.Visible;
+  }
+  Login() {
+    this.router.navigate(['login'])
+  }
+  Authorized: any = localStorage.getItem("IsAuthorized") === 'true';
+  Visible: boolean = false;
 }
