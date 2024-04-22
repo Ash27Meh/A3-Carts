@@ -7,6 +7,7 @@ import { CartComponent } from './cart/cart.component';
 import { ProfileComponent } from './profile/profile.component';
 import { YourOrderComponent } from './your-order/your-order.component';
 import { HomeComponent } from './home/home.component';
+import { CheckoutComponent } from './checkout/checkout.component';
 
 const routes: Routes = [
   {path: 'dashboard', component: DashboardComponent,
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'cart', component:CartComponent},
   {path: 'profile', component: ProfileComponent},
   {path: 'your_order', component:YourOrderComponent},
+  {path: 'checkout', component:CheckoutComponent},
   {path: '', redirectTo: 'dashboard', pathMatch: 'full'}
 ];
 

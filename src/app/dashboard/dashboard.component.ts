@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../services/users/user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,7 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent {
-  constructor(private router: Router) { }
+  data:any;
+  constructor(private router: Router, private userservice: UserService) { }
   Cart() {
       this.router.navigate(['cart']);
   }
@@ -15,7 +17,8 @@ export class DashboardComponent {
       this.router.navigate(['your_order']);
   }
   Profile() {
-      this.router.navigate(['profile']);
+
+    this.router.navigate(['profile']);
   }
   Logout() {
     this.router.navigate(['/dashboard']);
